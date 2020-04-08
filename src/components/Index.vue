@@ -59,7 +59,7 @@
     },
     methods: {
       editTheAddress() {
-        axios.get('https://crly-test-project.firebaseio.com/paymentMethods/0/googleTransactionId')
+        axios.get('http://localhost:3001/api/users')
           .then(res => {
             console.log(res.data)
           })
