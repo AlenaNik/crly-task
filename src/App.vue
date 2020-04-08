@@ -24,4 +24,12 @@ export default {
   color: $text-primary;
   font-weight: $medium;
 }
+body {
+  margin: 0;
+  box-sizing: border-box;
+  ul {
+    padding: 0;
+  }
+}
+
 </style>
