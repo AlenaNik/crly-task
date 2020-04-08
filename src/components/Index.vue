@@ -1,17 +1,19 @@
 <template>
   <div>
-    <h2>User info</h2>
-      <button @click="editTheAddress">Get users info ℹ️ </button>
-          <div class="index" v-for="user in users" :key="user.id">
-              <ul v-for="address in user.addresses" class="card">
+    <h2>User address info ℹ️ </h2>
+          <div class="index" v-for="user in users" :key="index">
+              <ul v-for="address in user.addresses" :key="index" class="card">
                 <li class="card-content">
-                  {{ address.firstName }}
+                 Name:  {{ address.firstName }}
                 </li>
                 <li class="card-content">
-                  {{ address.lastName }}
+                 Surname: {{ address.lastName }}
                 </li>
                 <li class="card-content">
-                  {{ address.countryName }} 🇩🇪
+                 Address: {{ address.countryName }} 🇩🇪
+                  {{ address.postalCode }}
+                  {{ address.region }}
+                  {{ address.streetAddress }}
                 </li>
               </ul>
           </div>
@@ -28,13 +30,14 @@
         users: []
       }
     },
-    methods: {
-      editTheAddress() {
-        axios.get('http://localhost:3001/api/addresses')
-          .then(res => {
-            this.users = res.data
-          })
-      }
+    created() {
+      axios.get('http://localhost:3001/api/addresses')
+        .then(res => {
+          this.users = res.data
+        })
+        .catch(e => {
+          console.error(e)
+        })
     }
   }
 

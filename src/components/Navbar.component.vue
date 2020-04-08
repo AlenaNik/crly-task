@@ -1,9 +1,13 @@
 <template>
   <div class="navbar">
       <nav>
+        <router-link :to="{ name: 'Index' }">
           <img :src="image" alt=""/>
-          <p>transactions list.</p>
-          <p>address list.</p>
+        </router-link>
+        <router-link :to="{ name: 'CustomerTransactions' }">
+            <p>transactions list.</p>
+        </router-link>
+
       </nav>
   </div>
 
@@ -11,6 +15,7 @@
 
 <script>
 import logo from '../assets/img/logo.png'
+
 
 export default {
   name: 'Navbar',
@@ -27,6 +32,9 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/variables";
+a {
+  text-decoration: none;
+}
   .navbar {
     background-color: $base-white-color;
     font-size: $paragraph;
@@ -44,16 +52,13 @@ export default {
               }
           }
             p {
+              color: $text-primary;
               padding: $padding;
               width: 130px;
               margin-left: auto;
               margin-right: auto;
               text-align: center;
-
-            }
-            p:hover {
               border-bottom: 5px solid #92e361;
-              transition: all 0.3s ease 0s;
             }
 
         @include desktop {
