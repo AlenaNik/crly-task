@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>User address info ℹ️ </h2>
-          <div class="index" v-for="user in users" :key="index">
-              <ul v-for="address in user.addresses" :key="index" class="card">
+    <h2>user address info ℹ️ </h2>
+          <div class="index" v-for="user in users">
+              <ul v-for="address in user.addresses" :key="address.id" class="card">
                 <li class="card-content">
                  Name:  {{ address.firstName }}
                 </li>
@@ -13,8 +13,10 @@
                  Address: {{ address.countryName }} 🇩🇪
                   {{ address.postalCode }}
                   {{ address.region }}
+                  {{ address.locality }}
                   {{ address.streetAddress }}
                 </li>
+                <button> edit address </button>
               </ul>
           </div>
   </div>
@@ -52,16 +54,24 @@ h2 {
 button {
   display: block;
   margin: 20px auto;
+  font-weight: bold;
   background-image: $primary-gradient;
+  opacity: 0.5;
   border-radius: 20px;
   border: $border;
-  color: $base-white-color;
+  color: $base-grey-color;
+  font-size: 12px;
   cursor: pointer;
   font-family: "Sofia Pro Semi Bold",sans-serif;
-  font-size: inherit;
-  padding: 10px 20px;
+  padding: 8px 14px;
   text-align: center;
   text-decoration: none;
+}
+
+button:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  box-shadow: $box-shadow;
 }
 
 .index {
@@ -70,8 +80,6 @@ button {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-
-
     .card {
       height: 200px;
       width: 200px;
@@ -80,15 +88,15 @@ button {
       background-color: $base-white-color;
       border-radius: 15px;
       margin: 10px;
+      padding: $padding;
       li {
         list-style: none;
       }
-
           .card-content {
             text-align: center;
             font-size: 12px;
             font-weight: bold;
-            padding: $padding * 2;
+            padding: $padding;
           }
 
     }

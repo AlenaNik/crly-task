@@ -12,9 +12,9 @@
           <div v-for="detail in transactionDetail.subscriptions">
            <div v-for="transactionItem in detail.transactions" class="bottom-section">
               <h2>transaction details ℹ️ </h2>
-              <p>Amount: {{ transactionItem.amount }}</p>
-              <p>Globald: {{ transactionItem.androidPayCard.globalId }}</p>
-              <p>GoogleTransactionId: {{ transactionItem.androidPayCard.googleTransactionId }}</p>
+              <p>amount: {{ transactionItem.amount }}</p>
+              <p>globa id: {{ transactionItem.androidPayCard.globalId }}</p>
+              <p>google transaction id: {{ transactionItem.androidPayCard.googleTransactionId }}</p>
              <img :src="transactionItem.androidPayCard.imageUrl" alt="">
            </div>
           </div>
@@ -52,27 +52,23 @@
   h2 {
     text-align: center;
   }
-
   .index {
     padding: $padding * 4;
      p {
        font-weight: bold;
-       box-sizing: border-box;
        font-size: 14px;
-       line-height: 1.5;
        margin-bottom: 20px;
        margin-top: 0;
      }
     .bottom-section {
-      -webkit-box-align: start;
-      align-items: flex-start;
       background-image: $primary-gradient;
+      min-width: 40%;
       box-sizing: border-box;
-      display: block;
       padding-bottom: $padding * 2;
       padding-top: 60px;
       text-align: center;
       border-radius: 10px;
+      line-break: auto;
       box-shadow: $box-shadow;
     }
   }
