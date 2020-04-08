@@ -29,7 +29,6 @@ export default {
 @import "../assets/scss/variables";
   .navbar {
     background-color: $base-white-color;
-    padding-left: 50px;
     font-size: $paragraph;
     font-weight: $bold;
       nav {
