@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+$base-white-color: #FFF;
+$base-grey-color: #F5F5F5;
+$text-primary: #323232;
+$primary-gradient: linear-gradient(94deg,#92e361 ,#12e4ac);
+$border: 1px solid transparent;
+$box-shadow: #c5c5c5 1px 1px 11px 0;
+$padding: 10px;
+
+// font related
+
+@font-face {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+}
+
+$heading: 30px;
+$paragraph: 16px;
+$font-family: 'Quicksand', sans-serif;
+$light: 300;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+
+// mobile-first
+$desktop: 840px;
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+
