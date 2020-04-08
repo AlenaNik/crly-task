@@ -1,17 +1,20 @@
 <template>
   <div>
     <h2>User info</h2>
-      <div class="index">
-          <div class="card" v-for="user in users" :key="user.id">
-              <div class="card-content">
-                <p>{{ user.name }}</p>
-                <ul class="data">
-                  <li v-for="transaction in user.transactions" :key="user.id"> 💳 {{ transaction }} </li>
-                </ul>
-                <button @click="editTheAddress">Edit</button>
-              </div>
+      <button @click="editTheAddress">Get users info ℹ️ </button>
+          <div class="index" v-for="user in users" :key="user.id">
+              <ul v-for="address in user.addresses" class="card">
+                <li class="card-content">
+                  {{ address.firstName }}
+                </li>
+                <li class="card-content">
+                  {{ address.lastName }}
+                </li>
+                <li class="card-content">
+                  {{ address.countryName }} 🇩🇪
+                </li>
+              </ul>
           </div>
-      </div>
   </div>
 </template>
 
@@ -22,46 +25,14 @@
     name: 'Index',
     data: function () {
       return {
-        users: [
-          {
-            name: 'Username',
-            surname: 'Surname',
-            slug: 'info1',
-            transactions: [
-              'today',
-              'tomorrow'
-            ],
-            id: 1
-          },
-          {
-            name: 'Username2',
-            surname: 'Surname2',
-            slug: 'info2',
-            transactions: [
-              'today2',
-              'tomorrow2'
-            ],
-            id: 2
-          },
-          {
-            name: 'Username3',
-            surname: 'Surname3',
-            slug: 'info3',
-            transactions: [
-              'today3',
-              'tomorrow3'
-            ],
-            id: 3
-          },
-
-        ]
+        users: []
       }
     },
     methods: {
       editTheAddress() {
-        axios.get('http://localhost:3001/api/users')
+        axios.get('http://localhost:3001/api/addresses')
           .then(res => {
-            console.log(res.data)
+            this.users = res.data
           })
       }
     }
@@ -75,12 +46,28 @@
 h2 {
   text-align: center;
 }
+button {
+  display: block;
+  margin: 20px auto;
+  background-image: $primary-gradient;
+  border-radius: 20px;
+  border: $border;
+  color: $base-white-color;
+  cursor: pointer;
+  font-family: "Sofia Pro Semi Bold",sans-serif;
+  font-size: inherit;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
 .index {
   display: flex;
-  align-content: center;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
+
 
     .card {
       height: 200px;
@@ -90,30 +77,15 @@ h2 {
       background-color: $base-white-color;
       border-radius: 15px;
       margin: 10px;
+      li {
+        list-style: none;
+      }
 
           .card-content {
             text-align: center;
             font-size: 12px;
             font-weight: bold;
             padding: $padding * 2;
-            li {
-              list-style: none;
-            }
-            button {
-              background-image: $primary-gradient;
-              border-radius: 20px;
-              border: $border;
-              color: $base-white-color;
-              cursor: pointer;
-              display: inline-block;
-              font-family: "Sofia Pro Semi Bold",sans-serif;
-              margin-top: 20px;
-              font-size: inherit;
-              min-width: 100px;
-              padding: 6px 10px;
-              text-align: center;
-              text-decoration: none;
-            }
           }
 
     }
