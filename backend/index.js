@@ -17,6 +17,14 @@ app.get('/api/addresses', (req, res) => {
   res.json(addresses)
 })
 
+app.get('/api/addresses/:id', (req, res) => {
+    const id = req.params.id
+    addresses.forEach(function(address) {
+      const user = address.addresses.find(user => user.id === id)
+      res.json(user)
+    })
+})
+
 app.get('/api/transactions', (req, res) => {
   res.json(addresses)
 })
