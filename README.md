@@ -1,16 +1,19 @@
 > A Vue.js project made for Circuly by Alena
 Design and styling is based on https://www.circuly.io/ and implemented from scratch using sass 
 
-## To run both front and back
+
+## To start you have to run both: front and back
+
+First clone the repository and follow the instructions in 2 separate terminals
 
 ``` bash
-# install dependencies
-npm install
 
 # cd backend/src
+npm install
 npm start
 
 # cd frontend/src/
+npm install
 npm start
 
 ````
