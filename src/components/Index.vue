@@ -1,22 +1,24 @@
 <template>
   <div>
-    <h2>user address info ℹ️ </h2>
+    <h2>user address & info. ℹ️ </h2>
           <div class="index" v-for="user in users">
               <ul v-for="address in user.addresses" :key="address.id" class="card">
                 <li class="card-content">
-                 Name:  {{ address.firstName }}
+                 name:  {{ address.firstName }}
                 </li>
                 <li class="card-content">
-                 Surname: {{ address.lastName }}
+                 surname: {{ address.lastName }}
                 </li>
                 <li class="card-content">
-                 Address: {{ address.countryName }} 🇩🇪
+                 address: {{ address.countryName }} 🇩🇪
                   {{ address.postalCode }}
                   {{ address.region }}
                   {{ address.locality }}
                   {{ address.streetAddress }}
                 </li>
-                <button> edit address </button>
+                <router-link :to="{ name: 'UpdateInfo', params: {id: address.id} }">
+                  <button> edit address </button>
+                </router-link>
               </ul>
           </div>
   </div>
@@ -24,6 +26,7 @@
 
 <script>
   import axios from 'axios'
+  import UpdateInfo from './UpdateInfo'
 
   export default {
     name: 'Index',
