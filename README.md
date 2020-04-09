@@ -10,7 +10,7 @@ npm install
 # cd backend/src
 npm start
 
-# cd src/
+# cd frontend/src/
 npm start
 
 ````
