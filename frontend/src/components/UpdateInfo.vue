@@ -66,7 +66,7 @@ export default {
       }
 
       if (data.country && data.locality && data.postalCode && data.streetAddress) {
-        axios.put("http://localhost:3000gi/api/addresses/" + id, data).then(() => {
+        axios.put("http://localhost:3000/api/addresses/" + id, data).then(() => {
           this.newjson = data
           this.feedback = null
         }).catch(function (error) {
