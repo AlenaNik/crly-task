@@ -34,7 +34,7 @@
       }
     },
     created() {
-      axios.get('http://localhost:3001/api/transactions')
+      axios.get('http://localhost:3000/api/transactions')
         .then(res => {
           this.list = res.data
         })

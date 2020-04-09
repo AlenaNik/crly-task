@@ -36,7 +36,7 @@
       }
     },
     created() {
-      axios.get('http://localhost:3001/api/addresses')
+      axios.get('http://localhost:3000/api/addresses')
         .then(res => {
           this.users = res.data
         })
