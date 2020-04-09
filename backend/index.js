@@ -29,10 +29,13 @@ app.get('/api/transactions', (req, res) => {
   res.json(addresses)
 })
 
-app.post('/api/addresses', (req, res) => {
-  const user = req.body
-  console.log(user)
-  res.json(user)
+app.put('/api/addresses/:id', (req, res) => {
+  const id = req.params.id
+  addresses.forEach(function(address) {
+    const user = address.addresses.find(user => user.id === id)
+    user.data = req.body
+    res.send(user)
+  })
 })
 
 const PORT = 3001
